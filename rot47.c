@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#define ROT 13
+#define ROT 47
 
 main (argc,argv)
 
@@ -10,7 +10,7 @@ char *argv[];
 {
 	int go;
 	
-	printf("\nROT13 Encryption Produces This Result:\n");
+	printf("\nROT47 Encryption Produces This Result:\n");
 
 	for (go=1; go<=argc-1; go++)
 	{
@@ -28,12 +28,12 @@ char *argv[];
 		{
 			rotted[count]=rotstr[count];
 
-			if (((rotted[count]>='a')&&(rotted[count]<='m'))||((rotted[count]>='A')&&(rotted[count]<='M')))
+			if ((rotted[count]>=33)&&(rotted[count]<=79))
 			{
 				rotted[count]=rotted[count]+ROT;
 			}
 		
-			else if (((rotted[count]>='n')&&(rotted[count]<='z'))||((rotted[count]>='N')&&(rotted[count]<='Z')))
+			else if ((rotted[count]>=80)&&(rotted[count]<=126))
 			{
 				rotted[count]=rotted[count]-ROT;
 			}
