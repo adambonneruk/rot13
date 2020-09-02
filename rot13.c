@@ -3,10 +3,16 @@
 
 #define ROT 13 //hardcoded rotate by 13 places, may be changed in future.
 
-void functionOne(int i, char const *word[])
+void rotateWord(int i, char const *wordArray[])
 {
-		printf("word: %d, value: %s\n",i,word[i]);
-		int wordLength = 0; //length of the current word
+	int wordLength = strlen(wordArray[i]);
+	char word[wordLength];
+	strcpy(word, wordArray[i]);
+
+
+
+
+	printf("wordArray[%d]: %s\t wordLength: %d\t Word: %s\n",i,wordArray[i],wordLength,word); //print a pretty array of the words
 }
 
 /***************************************************************************************************
@@ -26,7 +32,7 @@ int main (int argc, char const *argv[])
 	int i = 0; //index for argument count loop
 	for (i=1; i<=argc-1; i++) //-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
 	{
-		functionOne(i,argv);
+		rotateWord(i,argv);
 	}
 	return 0;
 }
@@ -35,7 +41,6 @@ int main (int argc, char const *argv[])
 
 
 		/*
-		wordLength = strlen(argv[i]);
 		int count;
 
 		char rotstr[wordLength];
@@ -60,6 +65,6 @@ int main (int argc, char const *argv[])
 			printf("%c", rotted[count]);
 		}
 */
-//printf(" ");
+
 
 
