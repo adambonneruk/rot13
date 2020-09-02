@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#define ROT 13
+
+#define ROT 13 //hardcoded rotate by 13 places, may be changed in future.
+
+int main (int argc, char const *argv[])
 
 /***************************************************************************************************
 argv and argc are how command line arguments are passed to main() in C and C++. argc will be the
@@ -14,24 +17,23 @@ They can also be omitted entirely, yielding int main(), if you do not intend to 
 arguments.
 ***************************************************************************************************/
 
-int main (int argc, char const *argv[])
 {
 	int i;
-	
+
 	printf("\nROT13 Encryption Produces This Result:\n");
 
 	for (i=1; i<=argc-1; i++)
 	{
 		int count;
-		int rotlen;	
+		int rotlen;
 
-		rotlen = strlen(argv[i]);	
+		rotlen = strlen(argv[i]);
 
 		char rotstr[rotlen];
 		char rotted[rotlen];
 
 		strcpy(rotstr, argv[i]);
-	
+
 		for (count=0; count<=rotlen; count++)
 		{
 			rotted[count]=rotstr[count];
@@ -40,18 +42,18 @@ int main (int argc, char const *argv[])
 			{
 				rotted[count]=rotted[count]+ROT;
 			}
-		
+
 			else if (((rotted[count]>='n')&&(rotted[count]<='z'))||((rotted[count]>='N')&&(rotted[count]<='Z')))
 			{
 				rotted[count]=rotted[count]-ROT;
 			}
-		
+
 			printf("%c", rotted[count]);
 		}
-		
+
 		printf(" ");
 	}
-	
+
 	printf("\n\n");
 
 return 0;
