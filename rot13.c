@@ -20,7 +20,7 @@ arguments.
 {
 	int i;
 
-	printf("\nROT13 Encryption Produces This Result:\n");
+	//printf("\nROT13 Encryption Produces This Result:\n");
 
 	for (i=1; i<=argc-1; i++)
 	{
@@ -51,10 +51,10 @@ arguments.
 			printf("%c", rotted[count]);
 		}
 
-		printf(" ");
+		//printf(" ");
 	}
 
-	printf("\n\n");
+	//printf("\n\n");
 
 return 0;
 }
