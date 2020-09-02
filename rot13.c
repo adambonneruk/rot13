@@ -3,7 +3,11 @@
 
 #define ROT 13 //hardcoded rotate by 13 places, may be changed in future.
 
-int main (int argc, char const *argv[])
+void functionOne(int i, char const *word[])
+{
+		printf("word: %d, value: %s\n",i,word[i]);
+		int wordLength = 0; //length of the current word
+}
 
 /***************************************************************************************************
 argv and argc are how command line arguments are passed to main() in C and C++. argc will be the
@@ -17,24 +21,29 @@ They can also be omitted entirely, yielding int main(), if you do not intend to 
 arguments.
 ***************************************************************************************************/
 
+int main (int argc, char const *argv[])
 {
-	int i;
-
-	//printf("\nROT13 Encryption Produces This Result:\n");
-
-	for (i=1; i<=argc-1; i++)
+	int i = 0; //index for argument count loop
+	for (i=1; i<=argc-1; i++) //-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
 	{
+		functionOne(i,argv);
+	}
+	return 0;
+}
+
+
+
+
+		/*
+		wordLength = strlen(argv[i]);
 		int count;
-		int rotlen;
 
-		rotlen = strlen(argv[i]);
-
-		char rotstr[rotlen];
-		char rotted[rotlen];
+		char rotstr[wordLength];
+		char rotted[wordLength];
 
 		strcpy(rotstr, argv[i]);
 
-		for (count=0; count<=rotlen; count++)
+		for (count=0; count<=wordLength; count++)
 		{
 			rotted[count]=rotstr[count];
 
@@ -50,11 +59,7 @@ arguments.
 
 			printf("%c", rotted[count]);
 		}
+*/
+//printf(" ");
 
-		//printf(" ");
-	}
 
-	//printf("\n\n");
-
-return 0;
-}
