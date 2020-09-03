@@ -20,6 +20,9 @@ Because there are 26 letters (2×13) in the basic Latin alphabet, ROT13 is its o
 >./rotate.exe "hello world"
 uryyb jbeyq
 
+>./rotate.exe "uryyb jbeyq"
+hello world
+
 # ROT-47
 >./rotate.exe --47 "input string" "something else"
 :?AFE DEC:?8 D@>6E9:?8 6=D6
