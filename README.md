@@ -56,6 +56,10 @@ OT47 is a derivative of ROT13 which, in addition to scrambling the basic letters
 -----------------------------------------------------------------------------------------------------------
 ```
 
+## Future Ideas (braindump)
+* ROT5
+* Unicode
+
 ## VS Shortcuts
 * Building for the First Time: ```ctrl + shift + b```
 * Debugging for the First Time: ```f5```
