@@ -4,12 +4,10 @@
 void rotateWords(int wordIndex, char const *wordArray[]);
 
 int main(int argc, char const *argv[]) {
-	printf("First Argument is: %s\n\n",argv[1]);
-	if (strcmp("Adam",argv[1]) == 0) {
-		printf("winner");
-	}
-	else {
-		printf("loser");
+	if (strcmp("--47",argv[1]) == 0) { //first argument is the 47 flag
+		printf("winner\n\n");
+	} else {
+		printf("loser\n\n");
 	}
 
 
@@ -29,11 +27,9 @@ void rotateWords(int wordIndex, char const *wordArray[]) {
 		//if (letterIndex == 0 && wordIndex != 1) {printf(" ");} //hack to put space infront of all words except first
 		if (((word[letterIndex]>='a')&&(word[letterIndex]<='m'))||((word[letterIndex]>='A')&&(word[letterIndex]<='M'))) {
 			rotatedWord[letterIndex] = word[letterIndex] + 13;
-		}
-		else if (((word[letterIndex]>='n')&&(word[letterIndex]<='z'))||((word[letterIndex]>='N')&&(word[letterIndex]<='Z'))) {
+		} else if (((word[letterIndex]>='n')&&(word[letterIndex]<='z'))||((word[letterIndex]>='N')&&(word[letterIndex]<='Z'))) {
 			rotatedWord[letterIndex] = word[letterIndex] - 13;
-		}
-		else {
+		} else {
 			rotatedWord[letterIndex] = word[letterIndex];
 		}
 		printf("Word: %s\t Letter Index: %d\t Letter: %c\t Rotated Letter: %c\n",word,letterIndex + 1,word[letterIndex],rotatedWord[letterIndex]);
