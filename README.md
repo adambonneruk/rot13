@@ -1,5 +1,5 @@
 # rot13 (in C)
-simple C program to manipulate words passed to it (as arguments) using the ROT13 (and ROT47) substitutional cipher(s).
+C program used to manipulate words passed to it (as arguments) using the ROT13 (and ROT47) substitutional cipher(s).
 
 ## Background
 I originally created this code back in 2009 (2009-04-16 01:17:54 to be exact!). I think I was sat at my kitchen table in my first year student apartment. This code was used to test my understanding of compilers, makefiles, arguments and the C language itself
