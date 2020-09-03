@@ -3,6 +3,15 @@
 
 #define ROT 13 //hardcoded rotate by 13 places, may be changed in future.
 
+void rotateWords(int wordIndex, char const *wordArray[]);
+
+int main(int argc, char const *argv[]) {
+	for (int i = 1; i <= argc - 1; i++) {//-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
+		rotateWords(i, argv);
+	}
+	return 0;
+}
+
 void rotateWords(int wordIndex, char const *wordArray[]) {
 	int wordLength = strlen(wordArray[wordIndex]);
 	char word[wordLength];
@@ -23,23 +32,4 @@ void rotateWords(int wordIndex, char const *wordArray[]) {
 		printf("%c",rotatedWord[letterIndex]);
 	}
 	//printf("wordArray[%d]: %s\t wordLength: %d\t Word: %s\n", wordIndex, wordArray[wordIndex], wordLength, word); //print a pretty array of the words
-}
-
-/***************************************************************************************************
-argv and argc are how command line arguments are passed to main() in C and C++. argc will be the
-number of strings pointed to by argv. This will (in practice) be 1 plus the number of arguments, as
-virtually all implementations will prepend the name of the program to the array.
-
-The variables are named argc (argument count) and argv (argument vector) by convention, but they can
-be given any valid identifier: int main(int num_args, char** arg_strings) is equally valid.
-
-They can also be omitted entirely, yielding int main(), if you do not intend to process command line
-arguments.
-***************************************************************************************************/
-
-int main(int argc, char const *argv[]) {
-	for (int i = 1; i <= argc - 1; i++) {//-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
-		rotateWords(i, argv);
-	}
-	return 0;
 }
