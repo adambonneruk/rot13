@@ -3,16 +3,26 @@
 
 #define ROT 13 //hardcoded rotate by 13 places, may be changed in future.
 
-void rotateWord(int i, char const *wordArray[])
-{
-	int wordLength = strlen(wordArray[i]);
+void rotateWords(int wordIndex, char const *wordArray[]) {
+	int wordLength = strlen(wordArray[wordIndex]);
 	char word[wordLength];
-	strcpy(word, wordArray[i]);
-
-
-
-
-	printf("wordArray[%d]: %s\t wordLength: %d\t Word: %s\n",i,wordArray[i],wordLength,word); //print a pretty array of the words
+	char rotatedWord[wordLength];
+	strcpy(word, wordArray[wordIndex]);
+	for (int letterIndex = 0; letterIndex <= wordLength - 1; letterIndex++)	{
+		if (((word[letterIndex]>='a')&&(word[letterIndex]<='m'))||((word[letterIndex]>='A')&&(word[letterIndex]<='M'))) {
+			rotatedWord[letterIndex] = word[letterIndex] + ROT;
+		}
+		else if (((word[letterIndex]>='n')&&(word[letterIndex]<='z'))||((word[letterIndex]>='N')&&(word[letterIndex]<='Z'))) {
+			rotatedWord[letterIndex] = word[letterIndex] - ROT;
+		}
+		else {
+			rotatedWord[letterIndex] = word[letterIndex];
+		}
+		//printf("Word: %s\t Letter Index: %d\t Letter: %c\t Rotated Letter: %c\n",word,letterIndex + 1,word[letterIndex],rotatedWord[letterIndex]);
+		printf("%c",rotatedWord[letterIndex]);
+	}
+	//printf("wordArray[%d]: %s\t wordLength: %d\t Word: %s\n", wordIndex, wordArray[wordIndex], wordLength, word); //print a pretty array of the words
+	printf(" ");
 }
 
 /***************************************************************************************************
@@ -27,44 +37,9 @@ They can also be omitted entirely, yielding int main(), if you do not intend to 
 arguments.
 ***************************************************************************************************/
 
-int main (int argc, char const *argv[])
-{
-	int i = 0; //index for argument count loop
-	for (i=1; i<=argc-1; i++) //-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
-	{
-		rotateWord(i,argv);
+int main(int argc, char const *argv[]) {
+	for (int i = 1; i <= argc - 1; i++) {//-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
+		rotateWords(i, argv);
 	}
 	return 0;
 }
-
-
-
-
-		/*
-		int count;
-
-		char rotstr[wordLength];
-		char rotted[wordLength];
-
-		strcpy(rotstr, argv[i]);
-
-		for (count=0; count<=wordLength; count++)
-		{
-			rotted[count]=rotstr[count];
-
-			if (((rotted[count]>='a')&&(rotted[count]<='m'))||((rotted[count]>='A')&&(rotted[count]<='M')))
-			{
-				rotted[count]=rotted[count]+ROT;
-			}
-
-			else if (((rotted[count]>='n')&&(rotted[count]<='z'))||((rotted[count]>='N')&&(rotted[count]<='Z')))
-			{
-				rotted[count]=rotted[count]-ROT;
-			}
-
-			printf("%c", rotted[count]);
-		}
-*/
-
-
-
