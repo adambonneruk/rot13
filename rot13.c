@@ -1,24 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 
-void rotateWords(int wordIndex, char const *wordArray[]);
+void rotateWords(int wordIndex, char const *wordArray[], int mode);
 
 int main(int argc, char const *argv[]) {
 	if (strcmp("--47",argv[1]) == 0) { //first argument is the 47 flag
-		printf("winner\n\n");
+		for (int i = 2; i <= argc - 1; i++) {//-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
+			rotateWords(i, argv, 47);
+		}
 	} else {
-		printf("loser\n\n");
-	}
-
-
-	//////////////////////////////////////////////////
-	for (int i = 1; i <= argc - 1; i++) {//-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
-		rotateWords(i, argv);
+		for (int i = 1; i <= argc - 1; i++) {//-1 as "rot13.exe" is 1st "argument", loop on count of words passed in
+			rotateWords(i, argv, 13);
+		}
 	}
 	return 0;
 }
 
-void rotateWords(int wordIndex, char const *wordArray[]) {
+void rotateWords(int wordIndex, char const *wordArray[], int mode) {
 	int wordLength = strlen(wordArray[wordIndex]);
 	char word[wordLength];
 	char rotatedWord[wordLength];
